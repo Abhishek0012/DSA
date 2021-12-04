@@ -1,5 +1,52 @@
 #include<bits/stdc++.h>
 using namespace std;
+class G_colour
+{
+    public:
+    void colour(vector<pair<int,int>> a_list[], int n)
+    {
+        int col[n+1];
+        memset(col,-1,sizeof(col));
+        queue<pair<int,int>> q;
+        q.push({1,1});
+        while(q.size()!=0)
+        {
+            int x = q.front().first;
+            int y = q.front().second;
+            q.pop();
+            for(auto it : a_list[x])
+            {
+               if(col[it.first]==-1)
+               {
+                 if(y==1)
+                 {
+                     col[it.first]=0;
+                     q.push({it.first,0});
+
+                 }
+                 if(y==0)
+                 {
+                     col[it.first]=1;
+                     q.push({it.first,1});
+
+                 }
+               }
+               if((col[it.first]==1 && y==0) || (col[it.first]==0 && y==1))
+               {
+                   continue;
+               }
+               else
+               {
+                   return ;
+               }
+            }
+        }
+        for(int i=1;i<=n;i++)
+        {
+             cout<<i<<" "<<col[i]<<endl;
+        }
+    }
+};
 class ufind
 {
     public:
