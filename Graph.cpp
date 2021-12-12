@@ -65,6 +65,7 @@ class ufind
             return false;
         }
         parent[px]=parent[py];
+        return true;
     }
 };
 class mst
