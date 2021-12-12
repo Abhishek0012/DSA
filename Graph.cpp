@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-// hello
 class G_colour
 {
     public:
@@ -48,17 +47,24 @@ class G_colour
         }
     }
 };
+// hello
 class ufind
 {
     public:
-    bool find(int a , int b , int parent[])
+    bool find(int a ,int parent[])
     {
-        if(parent[a]==parent[b]) return true;
-        return false;
+        while(parent[a]!=a) a=parent[a];
+        return a;
     }
-    void uni(int a , int b , int parent[])
+    bool uni(int a , int b , int parent[])
     {
-        parent[b]=parent[a];
+        int px = find(a,parent);
+        int py = find(b,parent);
+        if(px==py)
+        {
+            return false;
+        }
+        parent[px]=parent[py];
     }
 };
 class mst
@@ -79,7 +85,7 @@ class mst
            int x = list[i].second.first;
            int y = list[i].second.second;
            int w = list[i].first;
-           if(obj.find(x,y,parent)) continue;
+           if(obj.find(x,parent)!=obj.find(y,parent)) continue;
            else
            {
                cout<<x<<"-"<<y<<" "<<w<<"\n";
