@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+// hello
 class G_colour
 {
     public:
