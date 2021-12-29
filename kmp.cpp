@@ -25,13 +25,12 @@ class match_algorithm
            }
            else
            {
-               while(to_match[i]!=pattern[st])
+               while(to_match[i]!=pattern[st] && st>=1)
                {
                    st=arr[st-1];
                }
            }
        }
-       cout<<st<<endl;
        if(st==n) return true;
        return false;
     }
@@ -39,10 +38,11 @@ class match_algorithm
 };
 void solve()
 {
-    string s = "Abhishek";
-    string p = "bhis";
+    string s = "AABAACAADAABAABA";
+    string p = "AABA";
     match_algorithm obj;
-    cout<<obj.kmp(p,s)<<endl;
+    if(obj.kmp(p,s)) cout<<"milgyi re bawa"<<endl;
+    else cout<<"nhi mili bhai"<<endl;
 }
 int main()
 {
