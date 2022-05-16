@@ -32,7 +32,7 @@ class segment_tree
             seg[src]=val;
             return;
         }
-        int mid = l+(l-r)/2;
+        int mid = l+(r-l)/2;
         if(ind <=mid) update(src*2,l,mid,val,ind);
         else update(src*2+1,mid+1,r,val,ind);
         seg[src]=seg[src*2]+seg[src*2+1];
