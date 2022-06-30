@@ -12,7 +12,10 @@ class match_algorithm
        {
            int x = arr[i-1];
            if(arr[x]==arr[i]) arr[i]=arr[x-1]+1;
-           else arr[i]=0;
+           else
+           {
+               //
+           }
        }
        int st=0;
        for(int i=0;i<to_match.length();i++)
